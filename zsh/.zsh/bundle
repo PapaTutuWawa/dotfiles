@@ -1,0 +1,15 @@
+# Copy the completions and history from Zim
+zimfw/history
+zimfw/completion
+
+# Install a nice theme
+# 'pure' requires 'zsh-async' to be loaded first
+mafredri/zsh-async
+sindresorhus/pure
+
+robbyrussell/oh-my-zsh folder:plugins/systemd
+robbyrussell/oh-my-zsh folder:plugins/sudo
+
+# Gimme dat syntax hightlighting
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search

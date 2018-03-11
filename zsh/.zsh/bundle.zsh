@@ -1,0 +1,9 @@
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zimfw-SLASH-history/init.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zimfw-SLASH-completion/compdefs.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zimfw-SLASH-completion/init.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mafredri-SLASH-zsh-async/async.plugin.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-sindresorhus-SLASH-pure/pure.plugin.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/systemd/systemd.plugin.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/sudo/sudo.plugin.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source /home/alexander/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search/zsh-history-substring-search.plugin.zsh

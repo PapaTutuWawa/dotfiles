@@ -1,0 +1,11 @@
+[Unit]
+Description=Emacs: the extensible, self-documenting text editor
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/firejail emacs --daemon
+ExecStop=/usr/bin/firejail emacs --eval "(kill-emacs)"
+Restart=always
+
+[Install]
+WantedBy=default.target
