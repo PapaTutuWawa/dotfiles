@@ -1,26 +1,35 @@
 [options]
 font = Hack 10
 
-[colors]
-foreground = rgba(220, 220, 204, 1)
-foreground_bold = #eee8d5
-background = rgba(44, 44, 44, 0.8)
-cursor = #93a1a1
+# Color scheme: nord-termite
+# Project:    Nord Termite
+# Repository: https://github.com/arcticicestudio/nord-termite
+# License:    MIT
 
-# Colors
-color0 = rgba(63, 63, 63, 1)
-color1 = rgba(220, 50, 47, 1)
-color2 = rgba(96, 180, 138, 1)
-color3 = rgba(223, 175, 143, 1)
-color4 = rgba(154, 184, 215, 1)
-color5 = rgba(220, 140, 195, 1)
-color6 = rgba(140, 208, 211, 1)
-color7 = rgba(220, 220, 204, 1)
-color8 = #002b36
-color9 = #cb4b16
-color10 = #586e75
-color11 = #657b83
-color12 = #839496
-color13 = #6c71c4
-color14 = #93a1a1
-color15 = #fdf6e3
+# Modifications:
+# - Make the background color slightly transparent
+
+[colors]
+foreground = #D8DEE9
+background = rgba(46, 52, 64, 0.8)
+foreground_bold = #D8DEE9
+cursor = #D8DEE9
+cursor_foreground = #2E3440
+highlight = #4C566A
+
+color0  = #3B4252
+color1  = #BF616A
+color2  = #A3BE8C
+color3  = #EBCB8B
+color4  = #81A1C1
+color5  = #B48EAD
+color6  = #88C0D0
+color7  = #E5E9F0
+color8  = #4C566A
+color9  = #BF616A
+color10 = #A3BE8C
+color11 = #EBCB8B
+color12 = #81A1C1
+color13 = #B48EAD
+color14 = #8FBCBB
+color15 = #ECEFF4
