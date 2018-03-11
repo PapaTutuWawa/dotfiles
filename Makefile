@@ -13,6 +13,7 @@ install:
 	${stow} ssh
 	${stow} sway
 	${stow} termite
+	${stow} tmux
 
 lint: lint_zsh lint_bash lint_sh
 
