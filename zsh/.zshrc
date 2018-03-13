@@ -11,6 +11,11 @@ source "$HOME/.zsh/extra/common-aliases.zsh"
 # If some function definitions start not working, comment this out!
 fpath=("$HOME/.zsh/completion" $fpath)
 
+# Fix zsh not interpreting the left and right arrow keys as
+# forwards and backwards
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 # I don't know why, but ls does not output color
 # FIX IT
 alias ls="ls --color=always"
