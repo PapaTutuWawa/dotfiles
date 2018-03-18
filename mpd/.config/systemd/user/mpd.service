@@ -1,0 +1,9 @@
+[Unit]
+Description=Some daemon for music
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/mpd
+
+[Install]
+WantedBy=default.target

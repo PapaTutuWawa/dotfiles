@@ -14,6 +14,9 @@ install:
 	${stow} sway
 	${stow} termite
 	${stow} tmux
+	${stow} syncthing
+	${stow} mpd
+	${stow} ncmpcpp
 
 lint: lint_zsh lint_bash lint_sh
 
