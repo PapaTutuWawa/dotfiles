@@ -21,3 +21,6 @@ alias build='cd $HOME/Build'
 # WM
 alias lock="swaylock"
 alias suspend="systemctl suspend"
+
+# npcmpcpp
+alias n='ncmpcpp --config $HOME/.config/ncmpcpp/config'
