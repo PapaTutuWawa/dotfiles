@@ -8,15 +8,14 @@ install:
 	${stow} zsh
 	${stow} git
 	${stow} emacs
-	${stow} mbsync
-	${stow} neomutt
 	${stow} ssh
+	${stow} gpg
 	${stow} sway
 	${stow} termite
 	${stow} tmux
-	${stow} syncthing
-	${stow} mpd
-	${stow} ncmpcpp
+	${stow} mbsync
+	${stow} neomutt
+	#${stow} syncthing
 
 lint: lint_zsh lint_bash lint_sh
 
