@@ -1,2 +1,7 @@
-mpd/**/*
-!mpd/.config/mpd/mpd.conf
+# SSH
+ssh/**/*
+!ssh/.ssh/config
+
+# GPG
+gpg/**/*
+!gpg/.gnupg/gpg-agent.conf
