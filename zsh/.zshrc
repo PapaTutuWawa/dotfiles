@@ -15,6 +15,8 @@ fpath=("$HOME/.zsh/completion" $fpath)
 # forwards and backwards
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+# Let the DEL-key do its job
+bindkey "\e[3~" delete-char
 
 # I don't know why, but ls does not output color
 # FIX IT
