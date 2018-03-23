@@ -1,7 +1,8 @@
 # exec_always --no-startup-id dunst
 
 # Wallpaper
-output "*" bg /home/alexander/Dropbox/Wallpaper/Anime/8Ro8nm1.png fill
+output "*" bg /home/alexander/Pictures/wallpaper.jpg fill
+#output "*" bg /home/alexander/Dropbox/Wallpaper/Anime/8Ro8nm1.png fill
 
 # Disable the borders of the windows
 for_window [class="^.*"] border pixel 0
@@ -17,9 +18,9 @@ bar {
 	status_command i3status
 }
 
-output eDP-1 pos 0,0 res 1366x768
+output eDP-1 res 1366x768
 output DP-1 scale 2
-output DP-1 pos 0,768 res 1920x1080
+output DP-1 res 1920x1080
 
 # Configure the touchpad
 # - Disable the touchpad while typing
