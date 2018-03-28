@@ -23,7 +23,7 @@ bindkey "\e[3~" delete-char
 alias ls="ls --color=always"
 
 # Not everything needs to go to /usr/local/bin
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 export CARGO_HOME="$HOME/.cargo"
 
 # My keyboard may be German, but I want my system on English!
