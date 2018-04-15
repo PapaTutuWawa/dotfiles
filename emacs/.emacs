@@ -85,10 +85,13 @@
 ;; Reload the .emacs file
 (defun reload(arg)
   (interactive "p")
-  (load-file "~/.emacs")
-  )
+  (load-file "~/.emacs"))
+(defun japanese(arg)
+  (interactive "p")
+  (set-input-method "japanese"))
 (global-set-key (kbd "C-x w") 'reload)
 (global-set-key (kbd "C-c k") 'ag)
+(global-set-key (kbd "C-c C-j") 'japanese)
 
 ;;;;;; Programming
 ;; If not otherwise specified, indent using 4 spaces
