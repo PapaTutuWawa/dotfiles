@@ -3,9 +3,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters telephone-line markdown-mode nlinum undo-tree ag dockerfile-mode js2-mode web-mode avy-flycheck company use-package tide smartparens smart-mode-line neotree monokai-theme ivy indent-guide all-the-icons))))
+    (smart-mode-line-powerline-theme spaceline evil org-brain org-plus-contrib rainbow-delimiters telephone-line markdown-mode nlinum undo-tree ag dockerfile-mode js2-mode web-mode avy-flycheck company use-package tide smartparens smart-mode-line neotree monokai-theme ivy indent-guide all-the-icons)))
+ '(sml/theme (quote powerline)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -18,7 +22,8 @@
   (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                            ("melpa" . "https://melpa.org/packages/")
                            ("marmalade" . "https://marmalade-repo.org/packages/")
-                           ("melpa-stable" . "https://stable.melpa.org/packages/")))
+                           ("melpa-stable" . "https://stable.melpa.org/packages/")
+                           ("org" . "https://orgmode.org/elpa/")))
   )
 
 ;; Enable and configure the package manager
@@ -30,17 +35,15 @@
 
 ;; Use use-package to load needed packages
 (eval-when-compile
-(require 'use-package))
+  (require 'use-package))
 
 ;;;;;; Visuals
 ;; Show a file sidebar (with fancy icons)
 (use-package all-the-icons)
 (use-package neotree
   :config
-  (defvar neotree-smart-open t)
   (setq neo-window-width 35)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-  (neotree-show)
   )
 ;; Spacemacs-y undo tree
 (use-package undo-tree
@@ -70,6 +73,7 @@
 (use-package telephone-line
   :config
   (telephone-line-mode t))
+
 ;; Spacemacs-y autocomplete
 (ivy-mode 1)
 (defvar ivy-use-virtual-buffers t)
@@ -80,8 +84,14 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
+;; Always highlight the current line
+(hl-line-mode 1)
 
 ;;;;;; Keyboard shortcuts
+;; Install the evil-mode
+(use-package evil
+  :config
+  (evil-mode 1))
 ;; Reload the .emacs file
 (defun reload(arg)
   (interactive "p")
@@ -92,6 +102,25 @@
 (global-set-key (kbd "C-x w") 'reload)
 (global-set-key (kbd "C-c k") 'ag)
 (global-set-key (kbd "C-c C-j") 'japanese)
+(global-set-key (kbd "C-;") 'comment-dwim)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
+
+;;; C-c as general purpose escape key sequence.
+;;; Taken from https://www.emacswiki.org/emacs/Evil#toc16
+(defun my-esc (prompt)
+  "Functionality for escaping generally.  Includes exiting Evil insert state and C-g binding. "
+  (cond
+   ;; If we're in one of the Evil states that defines [escape] key, return [escape] so as
+   ;; Key Lookup will use it.
+   ((or (evil-insert-state-p) (evil-normal-state-p) (evil-replace-state-p) (evil-visual-state-p)) [escape])
+   ;; This is the best way I could infer for now to have C-c work during evil-read-key.
+   ;; Note: As long as I return [escape] in normal-state, I don't need this.
+   ;;((eq overriding-terminal-local-map evil-read-key-map) (keyboard-quit) (kbd ""))
+   (t (kbd "C-g"))))
+(define-key key-translation-map (kbd "C-c") 'my-esc)
+;; Works around the fact that Evil uses read-event directly when in operator state, which
+;; doesn't use the key-translation-map.
+(define-key evil-operator-state-map (kbd "C-c") 'keyboard-quit)
 
 ;;;;;; Programming
 ;; If not otherwise specified, indent using 4 spaces
@@ -99,13 +128,13 @@
  indent-tabs-mode nil
  tab-width 4)
 ;; Show lines visualizing the indentation
-(use-package indent-guide
-  :config
-  ;; Enable indent-guide globally...
-  (indent-guide-global-mode)
-  ;; ... except for these modes
-  (setq indent-guide-inhibit-modes '(org-mode text-mode neotree-mode custom-mode))
-  )
+;; (use-package indent-guide
+;;   :config
+;;   ;; Enable indent-guide globally...
+;;   (indent-guide-global-mode)
+;;   ;; ... except for these modes
+;;   (setq indent-guide-inhibit-modes '(org-mode text-mode neotree-mode custom-mode))
+;;   )
 ;; Autocompletion (and other stuff) of parentheses
 (use-package smartparens-config
   :config
@@ -147,6 +176,16 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+;; Org Mode
+;;(use-package org-drill)
+(use-package org-brain :ensure t
+  :init
+  (setq org-brain-path "directory/path/where-i-want-org-brain")
+  :config
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+  (setq org-brain-visualize-default-choices 'all)
+  (setq org-brain-title-max-length 12))
 
 ;;;;;; Typescript
 ;; Setup tide for further usage
@@ -174,6 +213,12 @@
 (setq select-enable-primary nil)
 ;; Don't create backup files
 (setq make-backup-files nil)
+;; Smooth scrolling
+(setq redisplay-dont-pause t
+  scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000
+  scroll-preserve-screen-position 1)
 
 (provide '.emacs)
 ;;; .emacs ends here
