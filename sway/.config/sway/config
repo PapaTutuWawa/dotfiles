@@ -1,5 +1,5 @@
 # Wallpaper
-output "*" bg /home/alexander/Pictures/2b_miku.jpg fill
+output "*" bg /home/alexander/Pictures/B3mFWBn.jpg fill
 #output "*" bg /home/alexander/Dropbox/Wallpaper/Anime/8Ro8nm1.png fill
 
 # Disable the borders of the windows
@@ -47,10 +47,11 @@ floating_modifier $mod
 
 # Start a terminal
 bindsym $mod+Return exec termite
+bindsym $mod+t exec termite tmux
 bindsym $mod+d exec IS_LAUNCHER=1 termite --name=launcher --geometry=400x50 --exec=/bin/bash -i -t
 
 # Open frequently used applications
-bindsym $mod+f exec firefox
+bindsym $mod+f exec chromium
 bindsym $mod+e exec emacs
 
 # Lock the screen
