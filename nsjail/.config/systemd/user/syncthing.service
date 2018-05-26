@@ -1,0 +1,9 @@
+[Unit]
+description=A sandboxed version of Syncthing
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/nsjail --config /home/alexander/.config/nsjail-profiles/syncthing.cfg
+
+[Install]
+WantedBy=default.target

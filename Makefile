@@ -15,6 +15,7 @@ install:
 	${stow} tmux
 	${stow} mbsync
 	${stow} neomutt
+	${stow} nsjail
 	#${stow} syncthing
 
 lint: lint_zsh lint_bash lint_sh
