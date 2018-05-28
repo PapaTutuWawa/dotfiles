@@ -5,3 +5,6 @@ ssh/**/*
 # GPG
 gpg/**/*
 !gpg/.gnupg/gpg-agent.conf
+
+# ncmpcpp
+ncmpcpp/.ncmpcpp/error.log

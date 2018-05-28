@@ -16,6 +16,8 @@ install:
 	${stow} mbsync
 	${stow} neomutt
 	${stow} nsjail
+	${stow} mpd
+	${stow} ncmpcpp
 	#${stow} syncthing
 
 lint: lint_zsh lint_bash lint_sh
