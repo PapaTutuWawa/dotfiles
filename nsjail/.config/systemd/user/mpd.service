@@ -1,0 +1,9 @@
+[Unit]
+Description=A sandboxed version of mpd
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/nsjail --config /home/alexander/.config/nsjail-profiles/mpd.cfg
+
+[Install]
+WantedBy=default.target

@@ -1,5 +1,5 @@
 [Unit]
-description=A sandboxed version of Syncthing
+Description=A sandboxed version of Syncthing
 
 [Service]
 Type=simple
