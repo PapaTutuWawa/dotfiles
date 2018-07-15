@@ -2,6 +2,9 @@
 output "*" bg /home/alexander/Pictures/B3mFWBn.jpg fill
 #output "*" bg /home/alexander/Dropbox/Wallpaper/Anime/8Ro8nm1.png fill
 
+# Desktop notifications
+exec dunst
+
 # Disable the borders of the windows
 for_window [class="^.*"] border pixel 0
 # Add a border around windows. Looks nice
